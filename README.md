@@ -46,10 +46,10 @@ OPTIONS
 ### In action:
 
 #### Visualizer using printf:
-![corewar in action_printf](https://github.com/rizkyario/42-corewar/blob/assets/corewar_in_action.gif)
+![corewar in action_printf](../assets/corewar_in_action.gif)
 
 #### Visualizer using ncurses:
-![corewar_in_action_ncurses](https://github.com/rizkyario/42-corewar/blob/assets/corewar_in_action2.gif)
+![corewar_in_action_ncurses](../assets/corewar_in_action2.gif)
 
 ### Test Suite:
 
@@ -59,7 +59,7 @@ OPTIONS
 
 #### All test cases:
 
-<img src="https://github.com/rizkyario/42-corewar/blob/assets/make_tests_large.png" width=80%>
+<img src="../assets/make_tests_large.png" width=80%>
 
 ## Code snippets:
 
@@ -68,33 +68,33 @@ OPTIONS
 Parsing with our own regex library:
 
 ```C
-int asm_get_paramtype(int opcode, t_param *param)
+int         asm_get_paramtype(int opcode, t_param *param)
 {
-	if (ft_re_match("^r\\d+$", (*param).str) == 0)
-	{
-		(*param).value = asm_get_paramval((*param).str, "\\d+");
-		(*param).size = 1;
-		return (T_REG);
-	}
-	else if (ft_re_match("^%:[\\w_\\d]+$", (*param).str) == 0 ||
-                     ft_re_match("^%-?\\d+$", (*param).str) == 0)
-	{
-		(ft_re_match("^%:[\\w_\\d]+$", (*param).str) == 0) ?
-			(*param).is_label = 1 : 0;
-		(*param).value = asm_get_paramval((*param).str, "-?\\d+");
-		(*param).size = g_op_dict[opcode].d_size;
-		return (T_DIR);
-	}
-	else if (ft_re_match("^:[\\w_\\d]+$", (*param).str) == 0 ||
-			ft_re_match("^-?\\d+$", (*param).str) == 0)
-	{
-		!ft_re_match(":[\\w_\\d]+$", (*param).str) ? (*param).is_label = 1 : 0;
-		(*param).value = asm_get_paramval((*param).str, "-?\\d+");
-		(*param).size = 2;
-		return (T_IND);
-	}
-	else
-		return (-1);
+    if (ft_re_match("^r\\d+$", (*param).str) == 0)
+    {
+        (*param).value = asm_get_paramval((*param).str, "\\d+");
+        (*param).size = 1;
+        return (T_REG);
+    }
+    else if (ft_re_match("^%:[\\w_\\d]+$", (*param).str) == 0 ||
+            ft_re_match("^%-?\\d+$", (*param).str) == 0)
+    {
+        (ft_re_match("^%:[\\w_\\d]+$", (*param).str) == 0) ?
+            (*param).is_label = 1 : 0;
+        (*param).value = asm_get_paramval((*param).str, "-?\\d+");
+        (*param).size = g_op_dict[opcode].d_size;
+        return (T_DIR);
+    }
+    else if (ft_re_match("^:[\\w_\\d]+$", (*param).str) == 0 ||
+            ft_re_match("^-?\\d+$", (*param).str) == 0)
+    {
+        !ft_re_match(":[\\w_\\d]+$", (*param).str) ? (*param).is_label = 1 : 0;
+        (*param).value = asm_get_paramval((*param).str, "-?\\d+");
+        (*param).size = 2;
+        return (T_IND);
+    }
+    else
+        return (-1);
 }
 ```
 
@@ -141,4 +141,6 @@ Collaboration between
 
 |<img src="https://avatars0.githubusercontent.com/u/6814254" width="75px;"/>|<img src="https://avatars0.githubusercontent.com/u/34797639" width="75px;"/>|<img src="https://avatars3.githubusercontent.com/u/38225561" width="75px;"/>|<img src="https://avatars0.githubusercontent.com/u/17133333" width="75px;"/>|
 | --------- | --------- | --------  | --------- | 
-| [Rizky Ario](https://github.com/rizkyario) |[Fabian Petras](https://github.com/fpetras)|[Julianto Yeo](https://github.com/juliantoyeo)|[Martin Jozan](https://github.com/mjozan)|
+| [Rizky Ario](https://github.com/rizkyario) | [Fabian Petras](https://github.com/fpetras) | [Julianto Yeo](https://github.com/juliantoyeo) | [Martin Jozan](https://github.com/mjozan) |
+
+## [Subject](https://github.com/fpetras/42-subjects/blob/master/corewar.en.pdf "corewar.en.pdf")
